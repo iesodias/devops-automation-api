@@ -73,7 +73,7 @@ docker run -p 8081:8081 devops-api
 [http://localhost:8081/cep](http://localhost:8081/cep)
 
 🧱 Exemplo JSON direto:
-[http://localhost:8081/api/cep/30350210](http://localhost:8081/api/cep/35702s024)
+[http://localhost:8081/api/cep/30350210](http://localhost:8081/api/cep/s)
 
 ---
 
