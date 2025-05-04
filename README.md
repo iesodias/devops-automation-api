@@ -3,7 +3,9 @@
 API Java com Spring Boot construída para ensinar automação DevOps com qualidade, integração, CI/CD e containers.
 Desenvolvida como parte do curso **DevOps Automation**.
 
-![DevOps Automation Logo](https://raw.githubusercontent.com/iesodias/devops-automation-api/main/src/main/resources/static/devops.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/iesodias/devops-automation-api/main/src/main/resources/static/devops.png" alt="DevOps Automation Logo" width="120"/>
+</p>
 
 ---
 
@@ -18,7 +20,7 @@ Desenvolvida como parte do curso **DevOps Automation**.
 
 ---
 
-## 📆 Como rodar localmente (porta 8081)
+## 📦 Como rodar localmente (porta 8081)
 
 ```bash
 git clone https://github.com/iesodias/devops-automation-api.git
@@ -61,7 +63,7 @@ docker run -p 8081:8081 devops-api
 ## 🧪 Healthcheck
 
 * 🔍 Técnico (JSON): `http://localhost:8081/actuator/health`
-* 💻 Visual: `http://localhost:8081/status`
+* 🖥️ Visual: `http://localhost:8081/status`
 
 ---
 
