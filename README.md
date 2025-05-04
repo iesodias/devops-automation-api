@@ -92,4 +92,4 @@ Projeto mantido por [@iesodias](https://github.com/iesodias)
 
 ---
 
-💬 Dúvidas ou sugestões? Me chama no [Instagram](https://instagram.com/) ou abre uma issue.
+💬 Dúvidas ou sugestões? Me chama no [Instagram](https://instagram.com/iesofdias) ou abre uma issue.
