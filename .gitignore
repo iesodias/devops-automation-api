@@ -1,59 +1,48 @@
-# Sistema operacional
+# Arquivos de Sistema Operacional
 .DS_Store
 Thumbs.db
 
-# Logs e temporários
+# Logs e arquivos temporários
 *.log
 *.tmp
 *.bak
+*.swp
 
-# Diretórios de build do Maven
+# Arquivos gerados em tempo de execução
+ec2_instance_id.txt
+ec2_public_ip.txt
+
+# Ferramentas de Build e Dependências (Maven/Gradle)
 target/
-build/
-
-# Diretório wrapper do Maven (mantém apenas o jar necessário)
 .mvn/
-!.mvn/wrapper/maven-wrapper.jar
+build/
+dist/
+out/
 
-# Maven wrapper script para Windows (aviso: só ignore se não quiser suportar)
-#mvnw.cmd
-
-# Arquivos do Spring Tool Suite (STS)
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-# IntelliJ IDEA
+# Arquivos de IDE
 .idea/
 *.iml
 *.iws
 *.ipr
-out/
-
-# NetBeans
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+.classpath
+.project
+.settings
+.factorypath
+.springBeans
+.sts4-cache
+nbproject/
+.nb-gradle/
 
 # VSCode
 .vscode/
 
-# Docker
-*.dockerfile
-docker-compose.override.yml
-
-# Arquivos sensíveis
+# Arquivos sensíveis (adicionar padrões conforme necessário)
 *.pem
 *.key
 *.env
-# Não subir script Maven do Windows (opcional)
-mvnw.cmd
+application-local.properties
 
-# Arquivo oculto do macOS
-.DS_Store
+# Coleções e ambientes do Postman (considerar se devem ser versionados)
+# Se forem específicos do usuário, devem ser ignorados.
+# DevOps-Automation-API.postman_collection.json
+# DevOps-Automation-API.postman_environment.json

@@ -1,0 +1,539 @@
+{
+  "info": {
+    "name": "DevOps Automation API",
+    "description": "Collection completa para testar todos os endpoints da DevOps Automation API - Spring Boot application para ensino de automação DevOps",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "🌟 Basic Endpoints",
+      "description": "Endpoints básicos da API",
+      "item": [
+        {
+          "name": "Hello World",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/hello",
+              "host": ["{{base_url}}"],
+              "path": ["api", "hello"]
+            },
+            "description": "Endpoint básico que retorna uma mensagem de hello world"
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8081/api/hello",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8081",
+                  "path": ["api", "hello"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain;charset=UTF-8"
+                }
+              ],
+              "body": "Ola, Mundo da API!"
+            }
+          ]
+        },
+        {
+          "name": "API Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/status",
+              "host": ["{{base_url}}"],
+              "path": ["api", "status"]
+            },
+            "description": "Status detalhado da API em JSON com métricas do sistema"
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8081/api/status",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8081",
+                  "path": ["api", "status"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hostname\": \"136728c8e127\",\n  \"memory\": {\n    \"heap_max_MB\": 1960,\n    \"heap_used_MB\": 22,\n    \"non_heap_used_MB\": 59\n  },\n  \"os\": \"Linux\",\n  \"app_version\": \"1.0.0\",\n  \"ip\": \"172.17.0.2\",\n  \"java_version\": \"17.0.16\",\n  \"cpu_load_avg\": 1.37841796875,\n  \"uptime_sec\": 13,\n  \"status\": \"UP\",\n  \"timestamp\": \"2025-08-11T02:01:05Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Container Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/info",
+              "host": ["{{base_url}}"],
+              "path": ["api", "info"]
+            },
+            "description": "Informações detalhadas do container e ambiente de execução"
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8081/api/info",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8081",
+                  "path": ["api", "info"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"containerName\": \"136728c8e127\",\n  \"ipAddress\": \"172.17.0.2\",\n  \"osName\": \"Linux\",\n  \"appVersion\": \"1.0.0\",\n  \"uptimeMillis\": 16964\n}"
+            }
+          ]
+        },
+        {
+          "name": "Container Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/getContainerName",
+              "host": ["{{base_url}}"],
+              "path": ["api", "getContainerName"]
+            },
+            "description": "Retorna o nome (hostname) do container atual"
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8081/api/getContainerName",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8081",
+                  "path": ["api", "getContainerName"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain;charset=UTF-8"
+                }
+              ],
+              "body": "Container name (hostname): 136728c8e127"
+            }
+          ]
+        },
+        {
+          "name": "Static JSON",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/json",
+              "host": ["{{base_url}}"],
+              "path": ["api", "json"]
+            },
+            "description": "Retorna JSON estático do resources/static/device.json"
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8081/api/json",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8081",
+                  "path": ["api", "json"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"device\": \"example\",\n  \"type\": \"static\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "📍 CEP API",
+      "description": "Endpoints para busca de endereços via CEP usando integração com ViaCEP",
+      "item": [
+        {
+          "name": "Buscar CEP - Válido",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/cep/{{valid_cep}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "cep", "{{valid_cep}}"]
+            },
+            "description": "Busca endereço por CEP válido (8 dígitos). Exemplo: 30350210"
+          },
+          "response": [
+            {
+              "name": "Success Response - Belo Horizonte",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8081/api/cep/30350210",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8081",
+                  "path": ["api", "cep", "30350210"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cep\": \"30350-210\",\n  \"logradouro\": \"Rua Matipó\",\n  \"complemento\": \"\",\n  \"unidade\": \"\",\n  \"bairro\": \"Santo Antônio\",\n  \"localidade\": \"Belo Horizonte\",\n  \"uf\": \"MG\",\n  \"estado\": \"Minas Gerais\",\n  \"regiao\": \"Sudeste\",\n  \"ibge\": \"3106200\",\n  \"gia\": \"\",\n  \"ddd\": \"31\",\n  \"siafi\": \"4123\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Buscar CEP - São Paulo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/cep/01001000",
+              "host": ["{{base_url}}"],
+              "path": ["api", "cep", "01001000"]
+            },
+            "description": "Exemplo de CEP de São Paulo - Praça da Sé"
+          },
+          "response": [
+            {
+              "name": "Success Response - São Paulo",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8081/api/cep/01001000",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8081",
+                  "path": ["api", "cep", "01001000"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cep\": \"01001-000\",\n  \"logradouro\": \"Praça da Sé\",\n  \"complemento\": \"lado ímpar\",\n  \"unidade\": \"\",\n  \"bairro\": \"Sé\",\n  \"localidade\": \"São Paulo\",\n  \"uf\": \"SP\",\n  \"estado\": \"São Paulo\",\n  \"regiao\": \"Sudeste\",\n  \"ibge\": \"3550308\",\n  \"gia\": \"1004\",\n  \"ddd\": \"11\",\n  \"siafi\": \"7107\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Buscar CEP - Rio de Janeiro",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/cep/20040020",
+              "host": ["{{base_url}}"],
+              "path": ["api", "cep", "20040020"]
+            },
+            "description": "Exemplo de CEP do Rio de Janeiro - Centro"
+          }
+        },
+        {
+          "name": "Buscar CEP - Inválido (Erro 400)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/cep/123",
+              "host": ["{{base_url}}"],
+              "path": ["api", "cep", "123"]
+            },
+            "description": "Teste com CEP inválido (menos de 8 dígitos) - deve retornar erro 400"
+          },
+          "response": [
+            {
+              "name": "Error Response - CEP Inválido",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8081/api/cep/123",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8081",
+                  "path": ["api", "cep", "123"]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"CEP deve conter exatamente 8 dígitos\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Buscar CEP - Não Encontrado (Erro 404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/cep/99999999",
+              "host": ["{{base_url}}"],
+              "path": ["api", "cep", "99999999"]
+            },
+            "description": "Teste com CEP que não existe - deve retornar erro 404"
+          }
+        }
+      ]
+    },
+    {
+      "name": "🏥 Health Check & Monitoring",
+      "description": "Endpoints de monitoramento e health check",
+      "item": [
+        {
+          "name": "Actuator Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/actuator/health",
+              "host": ["{{base_url}}"],
+              "path": ["actuator", "health"]
+            },
+            "description": "Health check técnico com status de todos os componentes do sistema"
+          },
+          "response": [
+            {
+              "name": "Healthy Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8081/actuator/health",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8081",
+                  "path": ["actuator", "health"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"components\": {\n    \"diskSpace\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"total\": 62671097856,\n        \"free\": 21877923840,\n        \"threshold\": 10485760,\n        \"path\": \"/app/.\",\n        \"exists\": true\n      }\n    },\n    \"ping\": {\n      \"status\": \"UP\"\n    },\n    \"ssl\": {\n      \"status\": \"UP\",\n      \"details\": {\n        \"validChains\": [],\n        \"invalidChains\": []\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Actuator Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/actuator/info",
+              "host": ["{{base_url}}"],
+              "path": ["actuator", "info"]
+            },
+            "description": "Informações básicas da aplicação"
+          }
+        }
+      ]
+    },
+    {
+      "name": "🌐 Web Pages",
+      "description": "Endpoints das páginas web (HTML)",
+      "item": [
+        {
+          "name": "Home Page",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/",
+              "host": ["{{base_url}}"],
+              "path": [""]
+            },
+            "description": "Página inicial com botões de navegação"
+          }
+        },
+        {
+          "name": "Status Dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/status",
+              "host": ["{{base_url}}"],
+              "path": ["status"]
+            },
+            "description": "Dashboard visual do status do sistema"
+          }
+        },
+        {
+          "name": "CEP Search Page",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/cep",
+              "host": ["{{base_url}}"],
+              "path": ["cep"]
+            },
+            "description": "Interface para busca de CEP com formulário"
+          }
+        },
+        {
+          "name": "Swagger UI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/swagger-ui.html",
+              "host": ["{{base_url}}"],
+              "path": ["swagger-ui.html"]
+            },
+            "description": "Interface Swagger para documentação interativa da API"
+          }
+        }
+      ]
+    },
+    {
+      "name": "📖 API Documentation",
+      "description": "Endpoints de documentação da API",
+      "item": [
+        {
+          "name": "OpenAPI JSON",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v3/api-docs",
+              "host": ["{{base_url}}"],
+              "path": ["v3", "api-docs"]
+            },
+            "description": "Especificação OpenAPI em formato JSON"
+          }
+        },
+        {
+          "name": "OpenAPI YAML",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v3/api-docs.yaml",
+              "host": ["{{base_url}}"],
+              "path": ["v3", "api-docs.yaml"]
+            },
+            "description": "Especificação OpenAPI em formato YAML"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8081",
+      "description": "Base URL da API (local development)"
+    },
+    {
+      "key": "valid_cep",
+      "value": "30350210",
+      "description": "CEP válido para testes (Belo Horizonte - Rua Matipó)"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Pre-request script global",
+          "console.log('Testing DevOps Automation API - Base URL:', pm.variables.get('base_url'));"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Global test script",
+          "pm.test('Response time is less than 5000ms', function () {",
+          "    pm.expect(pm.response.responseTime).to.be.below(5000);",
+          "});",
+          "",
+          "pm.test('Status code is success', function () {",
+          "    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);",
+          "});"
+        ]
+      }
+    }
+  ]
+}

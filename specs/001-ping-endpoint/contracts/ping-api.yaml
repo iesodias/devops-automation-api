@@ -1,0 +1,274 @@
+openapi: 3.0.3
+info:
+  title: Ping Endpoint API
+  description: |
+    REST API endpoint for executing network ping operations to check host reachability.
+    Part of the DevOps Automation API project.
+  version: 1.0.0
+  contact:
+    name: DevOps Automation API
+    url: https://github.com/iesodias/devops-automation-api
+
+servers:
+  - url: http://localhost:8081
+    description: Local development server
+  - url: http://localhost:8081/api
+    description: API base path
+
+tags:
+  - name: Ping
+    description: Network reachability testing operations
+
+paths:
+  /api/ping/{host}:
+    get:
+      tags:
+        - Ping
+      summary: Execute ping to a host
+      description: |
+        Executes a network ping operation to the specified hostname or IP address
+        and returns reachability status with response time.
+        
+        **Security**: Input is validated to prevent command injection attacks.
+        **Timeout**: Maximum 5 seconds for ping operation, 6 seconds total.
+        **Platform**: Supports Windows, Linux, and macOS.
+      operationId: pingHost
+      parameters:
+        - name: host
+          in: path
+          required: true
+          description: |
+            Target hostname or IP address to ping.
+            Must be a valid hostname (e.g., www.google.com) or IP address (IPv4/IPv6).
+            Special characters and shell metacharacters are rejected for security.
+          schema:
+            type: string
+            pattern: '^[a-zA-Z0-9._-]+$'
+            minLength: 1
+            maxLength: 253
+          examples:
+            hostname:
+              value: www.google.com
+              summary: Public hostname
+            ipv4:
+              value: 8.8.8.8
+              summary: IPv4 address
+            localhost:
+              value: localhost
+              summary: Local loopback
+      responses:
+        '200':
+          description: Ping executed successfully (host is reachable)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PingResponse'
+              examples:
+                successfulPing:
+                  summary: Successful ping to Google DNS
+                  value:
+                    host: 8.8.8.8
+                    reachable: true
+                    responseTime: 14.2
+                    status: SUCCESS
+                    message: Host 8.8.8.8 is reachable (14.20 ms)
+                    timestamp: '2025-11-09T14:30:00'
+                localPing:
+                  summary: Successful ping to localhost
+                  value:
+                    host: localhost
+                    reachable: true
+                    responseTime: 0.5
+                    status: SUCCESS
+                    message: Host localhost is reachable (0.50 ms)
+                    timestamp: '2025-11-09T14:30:15'
+        
+        '400':
+          description: Invalid host parameter (validation failed)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                invalidCharacters:
+                  summary: Host contains invalid characters
+                  value:
+                    timestamp: '2025-11-09T14:30:00'
+                    status: 400
+                    error: Bad Request
+                    message: Host contains invalid characters
+                    path: /api/ping/host;rm -rf /
+                emptyHost:
+                  summary: Empty host parameter
+                  value:
+                    timestamp: '2025-11-09T14:30:00'
+                    status: 400
+                    error: Bad Request
+                    message: Host cannot be blank
+                    path: /api/ping/
+                tooLong:
+                  summary: Hostname exceeds maximum length
+                  value:
+                    timestamp: '2025-11-09T14:30:00'
+                    status: 400
+                    error: Bad Request
+                    message: Host exceeds maximum length of 253 characters
+                    path: /api/ping/very-long-hostname...
+        
+        '408':
+          description: Ping operation timed out (host did not respond within 5 seconds)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                timeout:
+                  summary: Ping timeout
+                  value:
+                    timestamp: '2025-11-09T14:30:00'
+                    status: 408
+                    error: Request Timeout
+                    message: Ping to slow-host.example.com timed out after 5 seconds
+                    path: /api/ping/slow-host.example.com
+        
+        '503':
+          description: Host is unreachable or does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                unreachable:
+                  summary: Host unreachable
+                  value:
+                    timestamp: '2025-11-09T14:30:00'
+                    status: 503
+                    error: Service Unavailable
+                    message: Host nonexistent-host-xyz.com is unreachable
+                    path: /api/ping/nonexistent-host-xyz.com
+                invalidIP:
+                  summary: Invalid IP address
+                  value:
+                    timestamp: '2025-11-09T14:30:00'
+                    status: 503
+                    error: Service Unavailable
+                    message: Host 192.168.999.999 is unreachable
+                    path: /api/ping/192.168.999.999
+        
+        '500':
+          description: Internal server error (unexpected error during ping execution)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                internalError:
+                  summary: Unexpected error
+                  value:
+                    timestamp: '2025-11-09T14:30:00'
+                    status: 500
+                    error: Internal Server Error
+                    message: Failed to execute ping command
+                    path: /api/ping/example.com
+
+components:
+  schemas:
+    PingResponse:
+      type: object
+      required:
+        - host
+        - reachable
+        - status
+        - timestamp
+      properties:
+        host:
+          type: string
+          description: Target host that was pinged
+          example: www.google.com
+        reachable:
+          type: boolean
+          description: Whether the host is reachable
+          example: true
+        responseTime:
+          type: number
+          format: double
+          nullable: true
+          description: |
+            Response time in milliseconds.
+            Null if host is unreachable or ping failed.
+          example: 14.2
+        status:
+          type: string
+          enum:
+            - SUCCESS
+            - TIMEOUT
+            - UNREACHABLE
+            - INVALID
+          description: Status of the ping operation
+          example: SUCCESS
+        message:
+          type: string
+          description: Human-readable message describing the result
+          example: Host www.google.com is reachable (14.20 ms)
+        timestamp:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp of when the ping was executed
+          example: '2025-11-09T14:30:00'
+    
+    ErrorResponse:
+      type: object
+      required:
+        - timestamp
+        - status
+        - error
+        - message
+        - path
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          description: Timestamp when the error occurred
+          example: '2025-11-09T14:30:00'
+        status:
+          type: integer
+          description: HTTP status code
+          example: 400
+        error:
+          type: string
+          description: HTTP status reason phrase
+          example: Bad Request
+        message:
+          type: string
+          description: Detailed error message
+          example: Host contains invalid characters
+        path:
+          type: string
+          description: Request path that caused the error
+          example: /api/ping/invalid-host
+
+  examples:
+    SuccessfulPingResponse:
+      value:
+        host: 8.8.8.8
+        reachable: true
+        responseTime: 14.2
+        status: SUCCESS
+        message: Host 8.8.8.8 is reachable (14.20 ms)
+        timestamp: '2025-11-09T14:30:00'
+    
+    TimeoutResponse:
+      value:
+        timestamp: '2025-11-09T14:30:00'
+        status: 408
+        error: Request Timeout
+        message: Ping to slow-host.example.com timed out after 5 seconds
+        path: /api/ping/slow-host.example.com
+    
+    UnreachableResponse:
+      value:
+        timestamp: '2025-11-09T14:30:00'
+        status: 503
+        error: Service Unavailable
+        message: Host nonexistent-host-xyz.com is unreachable
+        path: /api/ping/nonexistent-host-xyz.com

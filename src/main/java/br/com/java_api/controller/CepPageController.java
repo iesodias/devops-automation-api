@@ -1,32 +1,32 @@
 package br.com.java_api.controller;
 
+import br.com.java_api.dto.CepResponseDTO;
+import br.com.java_api.service.CepService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.Map;
 
 @Controller
 public class CepPageController {
 
+    @Autowired
+    private CepService cepService;
+
     @GetMapping("/cep")
     public String showForm() {
-        return "cep"; // Exibe a página com o formulário
+        return "cep";
     }
 
     @PostMapping("/cep")
     public String buscarEndereco(@RequestParam String cep, Model model) {
-        String url = "https://viacep.com.br/ws/" + cep + "/json/";
-        RestTemplate restTemplate = new RestTemplate();
-
         try {
-            Map response = restTemplate.getForObject(url, Map.class);
-            model.addAttribute("endereco", response);
+            CepResponseDTO endereco = cepService.buscarEndereco(cep);
+            model.addAttribute("endereco", endereco);
         } catch (Exception e) {
             model.addAttribute("erro", "Erro ao buscar o endereço: " + e.getMessage());
         }
 
-        return "cep"; // Mesma página com resultado
+        return "cep";
     }
 }
