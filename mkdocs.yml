@@ -1,0 +1,53 @@
+site_name: 'DevOps Automation API'
+site_description: 'API REST Java com Spring Boot para ensinar automação DevOps com qualidade, integração, CI/CD e containers'
+site_author: 'DevOps Automation Team'
+repo_url: https://github.com/iesodias/devops-automation-api
+repo_name: iesodias/devops-automation-api
+
+nav:
+  - Home: index.md
+  - API Reference: api.md
+  - Arquitetura: arquitetura.md
+  - Deploy: deploy.md
+
+plugins:
+  - techdocs-core
+
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.sections
+    - toc.integrate
+  logo: assets/images/logo.png
+  favicon: assets/images/favicon.ico
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - attr_list
+  - def_list
+
+extra:
+  version:
+    provider: mike
