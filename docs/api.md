@@ -1,10 +1,10 @@
-# 📚 API Reference
+# API Reference
 
 Documentação completa de todos os endpoints da **DevOps Automation API**.
 
 ---
 
-## 🔗 Base URL
+## Base URL
 
 ```
 http://localhost:8081
@@ -14,7 +14,7 @@ Para ambientes de produção, substitua pelo domínio/IP apropriado.
 
 ---
 
-## 🏠 Interface Web (HTML)
+## Interface Web (HTML)
 
 Páginas renderizadas com Thymeleaf para interação visual.
 
@@ -75,13 +75,13 @@ open http://localhost:8081/cep
 
 ---
 
-## 🔌 API REST Endpoints
+## API REST Endpoints
 
 Endpoints JSON para integração programática.
 
 ---
 
-## 🌟 Endpoints Básicos
+## Endpoints Básicos
 
 ### GET `/api/hello`
 
@@ -212,7 +212,7 @@ java-api-container
 
 ---
 
-## 📍 API de Consulta de CEP
+## API de Consulta de CEP
 
 Integração com a API pública **ViaCEP** para consulta de endereços brasileiros.
 
@@ -325,7 +325,7 @@ curl http://localhost:8081/api/cep/99999999
 
 ---
 
-## 📄 Recursos Estáticos
+## Recursos Estáticos
 
 ### GET `/api/json`
 
@@ -356,7 +356,7 @@ curl http://localhost:8081/api/json | jq
 
 ---
 
-## 🏥 Health Check & Actuator
+## Health Check & Actuator
 
 Endpoints de monitoramento fornecidos pelo **Spring Boot Actuator**.
 
@@ -429,7 +429,7 @@ curl http://localhost:8081/actuator/info | jq
 
 ---
 
-## 📖 Documentação OpenAPI
+## Documentação OpenAPI
 
 ### GET `/swagger-ui.html`
 
@@ -470,7 +470,7 @@ curl http://localhost:8081/v3/api-docs | jq
 
 ---
 
-## 🧪 Testando a API
+## Testando a API
 
 ### Com cURL
 
@@ -505,7 +505,7 @@ http GET http://localhost:8081/api/cep/30350210
 
 ---
 
-## ⚙️ Rate Limiting
+## Rate Limiting
 
 !!! warning "Sem Rate Limiting Implementado"
     Esta é uma API educacional e **não possui rate limiting** implementado. Em produção, considere adicionar:
@@ -515,7 +515,7 @@ http GET http://localhost:8081/api/cep/30350210
 
 ---
 
-## 🔒 Autenticação
+## Autenticação
 
 !!! info "API Pública"
     Atualmente, a API **não requer autenticação**. Todos os endpoints são públicos.
@@ -528,7 +528,7 @@ http GET http://localhost:8081/api/cep/30350210
 
 ---
 
-## 🐛 Troubleshooting da API
+## Troubleshooting da API
 
 ### Erro 404 Not Found
 
@@ -581,11 +581,11 @@ api.read.timeout=20000
 
 ---
 
-## 📞 Suporte
+## Suporte
 
 Para mais informações:
 
-- 📘 [Documentação Completa](index.md)
-- 🏗️ [Arquitetura](arquitetura.md)
-- 🚢 [Guia de Deploy](deploy.md)
-- 🐛 [Issues no GitHub](https://github.com/iesodias/devops-automation-api/issues)
+- [Documentação Completa](index.md)
+- [Arquitetura](arquitetura.md)
+- [Guia de Deploy](deploy.md)
+- [Issues no GitHub](https://github.com/iesodias/devops-automation-api/issues)

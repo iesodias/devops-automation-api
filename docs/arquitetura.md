@@ -1,10 +1,10 @@
-# 🏗️ Arquitetura do Sistema
+# Arquitetura do Sistema
 
 Documentação da arquitetura e estrutura técnica da **DevOps Automation API**.
 
 ---
 
-## 📋 Visão Geral
+## Visão Geral
 
 A DevOps Automation API segue uma arquitetura em camadas baseada no padrão **MVC (Model-View-Controller)** do Spring Boot, com separação clara de responsabilidades entre apresentação, lógica de negócio e acesso a dados externos.
 
@@ -18,7 +18,7 @@ A DevOps Automation API segue uma arquitetura em camadas baseada no padrão **MV
 
 ---
 
-## 🎨 Arquitetura em Camadas
+## Arquitetura em Camadas
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -67,7 +67,7 @@ A DevOps Automation API segue uma arquitetura em camadas baseada no padrão **MV
 
 ---
 
-## 📦 Estrutura de Diretórios
+## Estrutura de Diretórios
 
 ```
 java-api/
@@ -117,7 +117,7 @@ java-api/
 
 ---
 
-## 🔧 Componentes Principais
+## Componentes Principais
 
 ### 1. Controllers (Camada de Apresentação)
 
@@ -361,7 +361,7 @@ public class OpenApiConfig {
 
 ---
 
-## 🔄 Fluxo de Dados
+## Fluxo de Dados
 
 ### Fluxo de Consulta de CEP
 
@@ -405,7 +405,7 @@ sequenceDiagram
 
 ---
 
-## 🐳 Arquitetura de Container
+## Arquitetura de Container
 
 ### Multi-stage Dockerfile
 
@@ -432,7 +432,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ---
 
-## 🔌 Integrações Externas
+## Integrações Externas
 
 ### ViaCEP API
 
@@ -453,7 +453,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ---
 
-## 📊 Monitoramento e Observabilidade
+## Monitoramento e Observabilidade
 
 ### Spring Boot Actuator
 
@@ -474,7 +474,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ---
 
-## 🔒 Segurança
+## Segurança
 
 ### Considerações Atuais
 
@@ -522,7 +522,7 @@ public class RateLimitConfig {
 
 ---
 
-## 📈 Escalabilidade
+## Escalabilidade
 
 ### Horizontal Scaling
 
@@ -567,7 +567,7 @@ spec:
 
 ---
 
-## 🧪 Testabilidade
+## Testabilidade
 
 ### Estrutura de Testes
 
@@ -614,7 +614,7 @@ class CepControllerTest {
 
 ---
 
-## 🔧 Extensibilidade
+## Extensibilidade
 
 ### Adicionando Novos Endpoints
 
@@ -650,7 +650,7 @@ void deveRetornarNovoEndpoint() {
 
 ---
 
-## 📚 Boas Práticas Implementadas
+## Boas Práticas Implementadas
 
 - ✅ **Separation of Concerns** - Camadas bem definidas
 - ✅ **Dependency Injection** - Baixo acoplamento
@@ -665,7 +665,7 @@ void deveRetornarNovoEndpoint() {
 
 ---
 
-## 🔗 Referências
+## Referências
 
 - [Spring Boot Documentation](https://spring.io/projects/spring-boot)
 - [Spring Framework Reference](https://docs.spring.io/spring-framework/reference/)
@@ -675,8 +675,8 @@ void deveRetornarNovoEndpoint() {
 
 ---
 
-## 📞 Próximos Passos
+## Próximos Passos
 
-- 📘 [API Reference](api.md) - Documentação detalhada dos endpoints
-- 🚢 [Deploy Guide](deploy.md) - Como fazer deploy da aplicação
-- 🏠 [Home](index.md) - Voltar à página inicial
+- [API Reference](api.md) - Documentação detalhada dos endpoints
+- [Deploy Guide](deploy.md) - Como fazer deploy da aplicação
+- [Home](index.md) - Voltar à página inicial

@@ -1,30 +1,30 @@
-# 🚢 Deploy e Build
+# Deploy e Build
 
 Guia completo para build, deploy e configuração da **DevOps Automation API** em diferentes ambientes.
 
 ---
 
-## 📋 Índice
+## Índice
 
-1. [Build Local](#-build-local)
-2. [Docker Build](#-docker-build)
-3. [Deploy Local](#-deploy-local)
-4. [Deploy com Docker Compose](#-deploy-com-docker-compose)
-5. [Deploy no Kubernetes](#-deploy-no-kubernetes)
-6. [Variáveis de Ambiente](#-variáveis-de-ambiente)
-7. [Configurações de Produção](#-configurações-de-produção)
-8. [CI/CD](#-cicd)
-9. [Monitoramento](#-monitoramento)
-10. [Troubleshooting](#-troubleshooting)
+1. [Build Local](#build-local)
+2. [Docker Build](#docker-build)
+3. [Deploy Local](#deploy-local)
+4. [Deploy com Docker Compose](#deploy-com-docker-compose)
+5. [Deploy no Kubernetes](#deploy-no-kubernetes)
+6. [Variáveis de Ambiente](#variáveis-de-ambiente)
+7. [Configurações de Produção](#configurações-de-produção)
+8. [CI/CD](#cicd)
+9. [Monitoramento](#monitoramento)
+10. [Troubleshooting](#troubleshooting)
 
 ---
 
-## 🏗️ Build Local
+## Build Local
 
 ### Pré-requisitos
 
-- ☕ Java 17 (Amazon Corretto JDK recomendado)
-- 🐘 Maven 3.9+ (ou usar Maven Wrapper)
+- Java 17 (Amazon Corretto JDK recomendado)
+- Maven 3.9+ (ou usar Maven Wrapper)
 
 ### Build com Maven Wrapper
 
@@ -76,7 +76,7 @@ java -Xmx512m -Xms256m -jar target/java-api-0.0.1-SNAPSHOT.jar
 
 ---
 
-## 🐳 Docker Build
+## Docker Build
 
 ### Dockerfile Multi-stage
 
@@ -209,7 +209,7 @@ docker stop java-api-container && docker rm java-api-container
 
 ---
 
-## 🐋 Deploy com Docker Compose
+## Deploy com Docker Compose
 
 ### docker-compose.yml
 
@@ -286,7 +286,7 @@ docker-compose up -d --scale java-api=3
 
 ---
 
-## ☸️ Deploy no Kubernetes
+## Deploy no Kubernetes
 
 ### Deployment YAML
 
@@ -425,7 +425,7 @@ kubectl rollout undo deployment/java-api-deployment -n devops-api
 
 ---
 
-## 🔐 Variáveis de Ambiente
+## Variáveis de Ambiente
 
 ### Variáveis Disponíveis
 
@@ -486,7 +486,7 @@ env:
 
 ---
 
-## ⚙️ Configurações de Produção
+## Configurações de Produção
 
 ### application-prod.properties
 
@@ -565,7 +565,7 @@ ENTRYPOINT ["java", \
 
 ---
 
-## 🔄 CI/CD
+## CI/CD
 
 ### GitHub Actions Workflow
 
@@ -663,7 +663,7 @@ docker:
 
 ---
 
-## 📊 Monitoramento
+## Monitoramento
 
 ### Prometheus Metrics
 
@@ -705,7 +705,7 @@ grep "duration" logs/application.log | awk '{print $NF}'
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Build falha por falta de memória
 
@@ -754,7 +754,7 @@ kubectl describe pod <pod-name>
 
 ---
 
-## 📚 Referências
+## Referências
 
 - [Spring Boot Deployment](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html)
 - [Docker Best Practices](https://docs.docker.com/develop/dev-best-practices/)
@@ -763,8 +763,8 @@ kubectl describe pod <pod-name>
 
 ---
 
-## 🔗 Links Relacionados
+## Links Relacionados
 
-- 🏠 [Home](index.md) - Página inicial
-- 📘 [API Reference](api.md) - Documentação da API
-- 🏗️ [Arquitetura](arquitetura.md) - Arquitetura do sistema
+- [Home](index.md) - Página inicial
+- [API Reference](api.md) - Documentação da API
+- [Arquitetura](arquitetura.md) - Arquitetura do sistema

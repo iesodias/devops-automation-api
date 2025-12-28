@@ -1,8 +1,8 @@
-# 🚀 DevOps Automation API
+# DevOps Automation API
 
 Bem-vindo à documentação oficial da **DevOps Automation API**!
 
-## 📖 Visão Geral
+## Visão Geral
 
 A DevOps Automation API é uma aplicação Java REST construída com Spring Boot, desenvolvida especialmente para ensinar e demonstrar práticas modernas de automação DevOps, incluindo:
 
@@ -17,7 +17,7 @@ Esta API serve como projeto prático para o curso **DevOps Automation**, oferece
 
 ---
 
-## 🎯 Objetivo
+## Objetivo
 
 Fornecer uma aplicação real e funcional que possa ser usada para:
 
@@ -29,52 +29,52 @@ Fornecer uma aplicação real e funcional que possa ser usada para:
 
 ---
 
-## ✨ Funcionalidades Principais
+## Funcionalidades Principais
 
-### 🌐 Interface Web
+### Interface Web
 - **Página inicial** com navegação intuitiva
 - **Dashboard de status** visual com métricas do sistema
 - **Formulário de consulta CEP** interativo
 
-### 🔌 API REST
+### API REST
 - **Endpoints básicos** (hello, status, info)
 - **Integração com ViaCEP** para consulta de endereços
 - **Informações de container** e ambiente
 - **Recursos estáticos JSON**
 
-### 🏥 Monitoramento
+### Monitoramento
 - **Spring Boot Actuator** para health checks
 - **Métricas do sistema** (CPU, memória, disco)
 - **OpenAPI/Swagger** para documentação interativa
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 | Tecnologia | Versão | Descrição |
 |------------|--------|-----------|
-| ☕ **Java** | 17 (Amazon Corretto) | Linguagem de programação |
-| 🌱 **Spring Boot** | 3.4.4 | Framework principal |
-| 🐘 **Maven** | 3.9.6+ | Gerenciador de dependências |
-| 🎨 **Thymeleaf** | - | Engine de templates HTML |
-| 🐳 **Docker** | - | Containerização |
-| 📘 **SpringDoc OpenAPI** | 2.5.0 | Documentação automática |
-| 🔧 **Actuator** | - | Monitoramento e health checks |
-| 🌐 **RestTemplate** | - | Cliente HTTP |
-| 🧪 **JUnit 5** | - | Testes unitários |
+| **Java** | 17 (Amazon Corretto) | Linguagem de programação |
+| **Spring Boot** | 3.4.4 | Framework principal |
+| **Maven** | 3.9.6+ | Gerenciador de dependências |
+| **Thymeleaf** | - | Engine de templates HTML |
+| **Docker** | - | Containerização |
+| **SpringDoc OpenAPI** | 2.5.0 | Documentação automática |
+| **Actuator** | - | Monitoramento e health checks |
+| **RestTemplate** | - | Cliente HTTP |
+| **JUnit 5** | - | Testes unitários |
 
 ---
 
-## 📦 Instalação e Execução
+## Instalação e Execução
 
 ### Pré-requisitos
 
-- ☕ **Java 17** (Amazon Corretto JDK recomendado)
-- 🐘 **Maven 3.9+** (ou usar o Maven Wrapper incluído)
-- 🐳 **Docker** (opcional, para execução containerizada)
-- 🔧 **Git** para clonar o repositório
+- **Java 17** (Amazon Corretto JDK recomendado)
+- **Maven 3.9+** (ou usar o Maven Wrapper incluído)
+- **Docker** (opcional, para execução containerizada)
+- **Git** para clonar o repositório
 
-### 🚀 Opção 1: Execução Local (Desenvolvimento)
+### Opção 1: Execução Local (Desenvolvimento)
 
 Esta é a forma recomendada para desenvolvimento local com hot-reload.
 
@@ -95,7 +95,7 @@ mvnw.cmd spring-boot:run
 !!! success "Hot Reload Habilitado"
     O Spring Boot DevTools está configurado, então mudanças no código serão recarregadas automaticamente durante o desenvolvimento.
 
-### 🐳 Opção 2: Execução com Docker
+### Opção 2: Execução com Docker
 
 Ideal para simular ambiente de produção ou testar a imagem Docker.
 
@@ -119,7 +119,7 @@ docker logs -f java-api-container
 !!! tip "Multi-stage Build"
     O Dockerfile usa multi-stage build para otimizar o tamanho da imagem final, separando o build da execução.
 
-### 📦 Opção 3: Build do JAR
+### Opção 3: Build do JAR
 
 Para criar um JAR executável para deploy manual:
 
@@ -136,7 +136,7 @@ java -jar -Dspring.profiles.active=prod target/java-api-0.0.1-SNAPSHOT.jar
 
 ---
 
-## 🎮 Exemplos de Uso
+## Exemplos de Uso
 
 ### Acessar a Interface Web
 
@@ -182,7 +182,7 @@ curl http://localhost:8081/v3/api-docs | jq
 
 ---
 
-## 🧪 Executar Testes
+## Executar Testes
 
 ```bash
 # Executar todos os testes
@@ -200,7 +200,7 @@ curl http://localhost:8081/v3/api-docs | jq
 
 ---
 
-## 🔧 Configuração
+## Configuração
 
 ### Variáveis de Ambiente
 
@@ -233,7 +233,7 @@ api.read.timeout=10000
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Problema: Porta 8081 já está em uso
 
@@ -299,16 +299,16 @@ api.read.timeout=20000
 
 ---
 
-## 📞 Suporte e Contato
+## Suporte e Contato
 
-### 🔗 Links Úteis
+### Links Úteis
 
 - **Repositório GitHub:** [iesodias/devops-automation-api](https://github.com/iesodias/devops-automation-api)
 - **Issues:** [GitHub Issues](https://github.com/iesodias/devops-automation-api/issues)
 - **Documentação Swagger:** http://localhost:8081/swagger-ui.html
 - **Health Check:** http://localhost:8081/actuator/health
 
-### 💬 Como Obter Ajuda
+### Como Obter Ajuda
 
 1. **Consulte a documentação** completa nas seções de API, Arquitetura e Deploy
 2. **Verifique os logs** da aplicação para mensagens de erro detalhadas
@@ -317,13 +317,13 @@ api.read.timeout=20000
 
 ---
 
-## 🚀 Próximos Passos
+## Próximos Passos
 
 Agora que você tem a aplicação rodando, explore:
 
-1. 📘 [**API Reference**](api.md) - Documentação detalhada de todos os endpoints
-2. 🏗️ [**Arquitetura**](arquitetura.md) - Entenda a estrutura e componentes do projeto
-3. 🚢 [**Deploy**](deploy.md) - Aprenda a fazer deploy em diferentes ambientes
+1. [**API Reference**](api.md) - Documentação detalhada de todos os endpoints
+2. [**Arquitetura**](arquitetura.md) - Entenda a estrutura e componentes do projeto
+3. [**Deploy**](deploy.md) - Aprenda a fazer deploy em diferentes ambientes
 
 ---
 
